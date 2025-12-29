@@ -57,7 +57,7 @@ backend/
 ├── package.json
 └── README.md
 
-```text
+```
 
 Article Data Model
 
@@ -165,5 +165,3 @@ Frontend dashboard
 Content diff visualization
 
 Notifications on updates
-
----
