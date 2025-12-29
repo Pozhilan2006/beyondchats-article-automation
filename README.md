@@ -25,9 +25,6 @@ The system follows a clean, layered backend architecture:
 
 Scraper Scripts ──▶ MongoDB ──▶ REST API ──▶ Clients
 
-yaml
-Copy code
-
 ---
 
 ## Project Structure
@@ -59,9 +56,6 @@ backend/
 ├── package.json
 └── README.md
 
-markdown
-Copy code
-
 ---
 
 ## Article Data Model
@@ -87,43 +81,34 @@ This allows tracking both **initial content** and **future changes**.
 ```bash
 cd backend
 npm install
+
 2. Setup environment variables
 Create a .env file using .env.example:
 
-env
-Copy code
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 3. Start the server
-bash
-Copy code
+
 npm run dev
 Server runs at:
 
-arduino
-Copy code
 http://localhost:5000
 Scraping & Automation
 Seed oldest articles
-bash
-Copy code
+
 node scripts/seedOldestArticles.js
 Scrape article content
-bash
-Copy code
+
 node scripts/scrapeArticles.js
 Detect and update changed content
-bash
-Copy code
+
 node scripts/scrapeAndUpdateArticles.js
 API Endpoints
 Get articles (paginated)
-bash
-Copy code
+
 GET /api/articles?page=1&limit=5
 Filter by status
-bash
-Copy code
+
 GET /api/articles?status=updated
 Design Decisions
 Separation of scripts and API
@@ -159,6 +144,3 @@ Frontend dashboard
 Content diff visualization
 
 Notifications on updates
-
-markdown
-Copy code
