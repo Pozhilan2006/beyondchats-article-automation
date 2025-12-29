@@ -31,30 +31,31 @@ Scraper Scripts ──▶ MongoDB ──▶ REST API ──▶ Clients
 
 backend/
 ├── scripts/
-│ ├── seedOldestArticles.js # Seeds oldest blog articles
-│ ├── scrapeBeyondChats.js # Discovers article URLs
-│ ├── scrapeArticles.js # Scrapes article content
-│ ├── scrapeAndUpdateArticles.js # Detects and updates changed content
+│   ├── seedOldestArticles.js        # Seeds oldest blog articles
+│   ├── scrapeBeyondChats.js         # Discovers article URLs
+│   ├── scrapeArticles.js            # Scrapes article content
+│   └── scrapeAndUpdateArticles.js   # Detects and updates changed content
 │
 ├── src/
-│ ├── config/
-│ │ └── db.js # MongoDB connection
-│ │
-│ ├── controllers/
-│ │ └── articleController.js # API logic
-│ │
-│ ├── models/
-│ │ └── Article.js # Article schema
-│ │
-│ ├── routes/
-│ │ └── articleRoutes.js # REST routes
-│ │
-│ ├── app.js # Express app setup
-│ └── server.js # Entry point
+│   ├── config/
+│   │   └── db.js                    # MongoDB connection
+│   │
+│   ├── controllers/
+│   │   └── articleController.js     # API logic
+│   │
+│   ├── models/
+│   │   └── Article.js               # Article schema
+│   │
+│   ├── routes/
+│   │   └── articleRoutes.js         # REST routes
+│   │
+│   ├── app.js                       # Express app setup
+│   └── server.js                    # Entry point
 │
 ├── .env.example
 ├── package.json
 └── README.md
+
 
 ---
 
