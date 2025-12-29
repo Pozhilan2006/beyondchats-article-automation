@@ -29,6 +29,7 @@ Scraper Scripts ──▶ MongoDB ──▶ REST API ──▶ Clients
 
 ## Project Structure
 
+```text
 backend/
 ├── scripts/
 │   ├── seedOldestArticles.js        # Seeds oldest blog articles
