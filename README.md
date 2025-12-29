@@ -2,7 +2,7 @@
 
 A backend system that automatically discovers, stores, and monitors BeyondChats blog articles, with support for content scraping, updates, and structured access via REST APIs.
 
-This project demonstrates backend engineering fundamentals such as data modeling, scraping pipelines, change detection, and clean API design.
+This project is designed to demonstrate backend engineering fundamentals: data modeling, scraping pipelines, change detection, and clean API design.
 
 ---
 
@@ -10,18 +10,18 @@ This project demonstrates backend engineering fundamentals such as data modeling
 
 The system follows a clean, layered backend architecture:
 
-### Scripts Layer
-One-time and scheduled jobs for:
-- Discovering blog articles
-- Seeding oldest posts
-- Scraping article content
-- Detecting content changes
+- **Scripts layer**  
+  One-time and scheduled jobs for:
+  - Discovering blog articles
+  - Seeding oldest posts
+  - Scraping article content
+  - Detecting content changes
 
-### API Layer (Express)
-Exposes REST endpoints for fetching stored articles with pagination and filtering.
+- **API layer (Express)**  
+  Exposes REST endpoints for fetching stored articles with pagination and filtering.
 
-### Database Layer (MongoDB + Mongoose)
-Stores article metadata, content, references, and update timestamps.
+- **Database layer (MongoDB + Mongoose)**  
+  Stores article metadata, content, references, and update timestamps.
 
 Scraper Scripts ──▶ MongoDB ──▶ REST API ──▶ Clients
 
@@ -29,6 +29,7 @@ Scraper Scripts ──▶ MongoDB ──▶ REST API ──▶ Clients
 
 ## Project Structure
 
+```text
 backend/
 ├── scripts/
 │   ├── seedOldestArticles.js        # Seeds oldest blog articles
@@ -56,29 +57,30 @@ backend/
 ├── package.json
 └── README.md
 
-Article Data Model
+
+---
+
+## Article Data Model
+
 Each article is stored with:
 
-title
+- `title`
+- `slug` (unique)
+- `content`
+- `sourceUrl`
+- `status` (`original` or `updated`)
+- `references` (external links)
+- `createdAt`, `updatedAt`
+- `lastScrapedAt`
 
-slug (unique)
+This allows tracking both **initial content** and **future changes**.
 
-content
+---
 
-sourceUrl
+## How to Run Locally
 
-status (original or updated)
-
-references
-
-createdAt, updatedAt
-
-lastScrapedAt
-
-This allows tracking both initial content and future changes.
-
-How to Run Locally
-1. Install dependencies
+### 1. Install dependencies
+```bash
 cd backend
 npm install
 
@@ -87,27 +89,27 @@ Create a .env file using .env.example:
 
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
-
 3. Start the server
+
 npm run dev
 Server runs at:
 
 http://localhost:5000
 Scraping & Automation
-Seed oldest articles:
+Seed oldest articles
 
 node scripts/seedOldestArticles.js
-Scrape article content:
+Scrape article content
 
 node scripts/scrapeArticles.js
-Detect and update changed content:
+Detect and update changed content
 
 node scripts/scrapeAndUpdateArticles.js
 API Endpoints
-Get articles (paginated):
+Get articles (paginated)
 
 GET /api/articles?page=1&limit=5
-Filter by status:
+Filter by status
 
 GET /api/articles?status=updated
 Design Decisions
@@ -124,7 +126,7 @@ Minimal scope, maximum clarity
 No frontend or auth added intentionally to keep focus on backend correctness.
 
 Why This Stands Out
-Real-world scraping and persistence workflow
+Real-world scraping + persistence workflow
 
 Clear data modeling
 
